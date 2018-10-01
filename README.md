@@ -10,12 +10,16 @@ Playing around with pressly/goose.
 
 Make sure that your system has met the prerequisites above before running the following build steps.
 
-### 1. Clone The Repository
+### 1. Install Dependency Packages
+
+	$ go get github.com/gorilla/mux
+
+### 2. Clone The Repository
 
 Clone the repo under your `$GOPATH/src` directory.
 
 
-### 2. Build
+### 3. Build
 
 	$ go build
 	
