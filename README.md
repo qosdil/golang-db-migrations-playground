@@ -13,6 +13,7 @@ Make sure that your system has met the prerequisites above before running the fo
 ### 1. Install Dependency Packages
 
 	$ go get github.com/gorilla/mux
+	$ go get github.com/go-sql-driver/mysql
 
 ### 2. Clone The Repository
 
