@@ -12,6 +12,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var version string
+
 // Movie ...
 type Movie struct {
 	ID          string `json:"id,omitempty"`
@@ -54,10 +56,13 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
+	w.Header().Set("Version", version)
 	json.NewEncoder(w).Encode(movies)
 }
 
 func main() {
+	version = "1.0.0"
+
 	router := mux.NewRouter()
 	router.HandleFunc("/movies", GetMovies).Methods("GET")
 
