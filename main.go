@@ -63,7 +63,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	version = "1.0.0"
+	version = "1.1.0"
 
 	router := mux.NewRouter()
 	router.HandleFunc("/movies", GetMovies).Methods("GET")
