@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var version string
+const version string = "1.1.0"
 
 // Movie ...
 type Movie struct {
@@ -63,8 +63,6 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	version = "1.1.0"
-
 	router := mux.NewRouter()
 	router.HandleFunc("/movies", GetMovies).Methods("GET")
 
