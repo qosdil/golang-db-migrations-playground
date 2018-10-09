@@ -11,19 +11,15 @@ Playing around with pressly/goose.
 
 Make sure that your system has met the prerequisites above before running the following build steps.
 
-### 1. Install Dependency Packages
-
-	$ go get github.com/gorilla/mux
-	$ go get github.com/go-sql-driver/mysql
-
-### 2. Clone The Repository
+### 1. Clone The Repository
 
 Clone the repo under your `$GOPATH/src` directory.
 
+### 2. Install Dependencies and Build
 
-### 3. Build
+Move to the cloned repository, then run the following:
 
-	$ go build
+	$ go get
 	
 ## Migrate Schemas
 	
@@ -59,7 +55,7 @@ To roll it back, run the `down` command one or more times until it reach the pre
 
 After running the steps above, you can run the service:
 
-	$ ./pressly-goose-test
+	$ $GOPATH/bin/pressly-goose-test
 
 ***
 &copy; 2018 Kudo.
