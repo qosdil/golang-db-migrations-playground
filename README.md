@@ -55,7 +55,7 @@ To roll it back, run the `down` command one or more times until it reach the pre
 
 After running the steps above, you can run the service:
 
-	$ $GOPATH/bin/pressly-goose-test
+	$ PORT=8080 $GOPATH/bin/pressly-goose-test
 
 ***
 &copy; 2018 Kudo.
