@@ -24,7 +24,7 @@ Move to the cloned repository, then run the following:
 	
 ### 3. Build
 
-	$ build
+	$ go build
 	
 ## Migrate Schemas
 	
