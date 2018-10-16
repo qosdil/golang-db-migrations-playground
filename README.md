@@ -5,6 +5,7 @@ Playing around with pressly/goose.
 
 ## Prerequisites
 * Go v1.11
+* Dep v0.5
 * MySQL v5.5
 
 ## Build
@@ -15,11 +16,15 @@ Make sure that your system has met the prerequisites above before running the fo
 
 Clone the repo under your `$GOPATH/src` directory.
 
-### 2. Install Dependencies and Build
+### 2. Install Dependencies
 
 Move to the cloned repository, then run the following:
 
-	$ go get
+	$ dep ensure
+	
+### 3. Build
+
+	$ build
 	
 ## Migrate Schemas
 	
@@ -55,7 +60,7 @@ To roll it back, run the `down` command one or more times until it reaches the p
 
 After running the steps above, you can run the service:
 
-	$ PORT=8080 $GOPATH/bin/pressly-goose-test
+	$ PORT=8080 ./pressly-goose-test
 
 ***
 &copy; 2018 Kudo.
