@@ -46,7 +46,7 @@ To create/update the database schemas, run the `up` command like the following e
 	
 	$ goose mysql "root@/pressly_goose_test?parseTime=true" up
 	
-To roll it back, run the `down` command one or more times until it reachs the previous state:
+To roll it back, run the `down` command one or more times until it reaches the previous state:
 
 	$ goose mysql "root@/pressly_goose_test?parseTime=true" down
 
