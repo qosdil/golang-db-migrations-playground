@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"os"
 
-	_ "gopkg.in/go-sql-driver/mysql.v1"
-	"gopkg.in/gorilla/mux.v1"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/mux"
 )
 
 const version string = "1.1.0"
