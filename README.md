@@ -60,6 +60,7 @@ To roll it back, run the `down` command one or more times until it reaches the p
 
 After running the steps above, you can run the service:
 
+	$ cd [app_root]
 	$ PORT=8080 ./pressly-goose-test
 
 ***
