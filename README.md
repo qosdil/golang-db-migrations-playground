@@ -5,24 +5,39 @@ Playing around with pressly/goose.
 
 ## Prerequisites
 * Go v1.11
-* Dep v0.5
+* Dep v0.5 (for non-Docker)
 * MySQL v5.5
 
 ## Build
 
 Make sure that your system has met the prerequisites above before running the following build steps.
 
-### 1. Clone The Repository
+### Docker
+
+#### 1. Clone The Repository
+#### 2. Build Image
+
+Move to the cloned repository:
+
+	$ cd [app_root]
+
+Then run Docker build command. In this example, version is `1.2.0`:
+
+	$ docker build -t pressly-goose-test-image:1.2.0 .
+
+### Non-Docker
+
+#### 1. Clone The Repository
 
 Clone the repo under your `$GOPATH/src` directory.
 
-### 2. Install Dependencies
+#### 2. Install Dependencies
 
 Move to the cloned repository, then run the following:
 
 	$ dep ensure
 	
-### 3. Build
+#### 3. Build
 
 	$ go build
 	
@@ -59,6 +74,14 @@ To roll it back, run the `down` command one or more times until it reaches the p
 ## Run
 
 After running the steps above, you can run the service:
+
+### Docker
+
+The following run command example binds port 3000 of the container to port 8080 on the host machine.
+
+	$ docker run -d -p 8080:3000 -e PORT=3000 --name pressly-goose-test-container pressly-goose-test-image:1.2.0 ./pressly-goose-test
+
+### Non-Docker
 
 	$ cd [app_root]
 	$ PORT=8080 ./pressly-goose-test
