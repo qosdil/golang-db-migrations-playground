@@ -7,5 +7,4 @@ COPY . .
 
 RUN dep ensure
 RUN go build
-RUN chmod +x ./pressly-goose-test
 CMD ["./pressly-goose-test"]
