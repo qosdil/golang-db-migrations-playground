@@ -34,13 +34,17 @@ Then run Docker build command. In this example, version is `1.2.0`:
 
 Clone the repo under your `$GOPATH/src` directory.
 
-#### 2. Install Dependencies
+#### 2. Set up Configuration
+
+Copy `/config.example.json` file as `/config.json`, then change the values with the real ones.
+
+#### 3. Install Dependencies
 
 Move to the cloned repository, then run the following:
 
 	$ dep ensure
 	
-#### 3. Build
+#### 4. Build
 
 	$ go build
 	
