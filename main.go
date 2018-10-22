@@ -10,6 +10,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
+	"github.com/spf13/viper"
 )
 
 const version string = "1.1.0"
@@ -24,7 +25,16 @@ type Movie struct {
 
 // GetMovies ...
 func GetMovies(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("mysql", "root:@/pressly_goose_test")
+	viper.SetConfigFile("./config.json")
+	if err := viper.ReadInConfig(); err != nil {
+		log.Fatalf("Error reading config file, %s", err)
+	}
+	dbUsername := viper.GetString("database.username")
+	dbPassword := viper.GetString("database.password")
+	dbHost := viper.GetString("database.host")
+	dbPort := viper.GetString("database.port")
+	dbName := viper.GetString("database.name")
+	db, err := sql.Open("mysql", dbUsername+":"+dbPassword+"@tcp("+dbHost+":"+dbPort+")/"+dbName)
 	if err != nil {
 		fmt.Fprintf(w, "\n\nAn error occured during your MySQL command: %s", err)
 		panic(err)

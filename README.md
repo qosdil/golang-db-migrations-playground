@@ -15,7 +15,10 @@ Make sure that your system has met the prerequisites above before running the fo
 ### Docker
 
 #### 1. Clone The Repository
-#### 2. Build Image
+#### 2. Set up Configuration
+
+Copy `/config.example.json` file as `/config.json`, then change the values with the real ones.
+#### 3. Build Image
 
 Move to the cloned repository:
 
