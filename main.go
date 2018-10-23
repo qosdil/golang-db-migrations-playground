@@ -13,7 +13,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-const version string = "1.2.0"
+const version string = "1.3.0"
 
 // Movie ...
 type Movie struct {
