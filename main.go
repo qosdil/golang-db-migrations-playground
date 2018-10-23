@@ -63,7 +63,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 			release_year string
 			language     sql.NullString
 		)
-		if err := rows.Scan(&id, &title, &release_year, &language); err != nil {
+		if err := rows.Scan(&id, &title, &stars, &release_year, &language); err != nil {
 			panic(err)
 		}
 
