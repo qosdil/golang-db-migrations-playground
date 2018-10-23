@@ -19,6 +19,7 @@ const version string = "1.2.0"
 type Movie struct {
 	ID          string `json:"id,omitempty"`
 	Title       string `json:"title,omitempty"`
+	Stars       string `json:"stars,omitempty"`
 	ReleaseYear string `json:"release_year,omitempty"`
 	Language    string `json:"language,omitempty"`
 }
@@ -40,7 +41,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	rows, err := db.Query("SELECT id, title, release_year, language FROM movies ORDER BY id")
+	rows, err := db.Query("SELECT id, title, stars, release_year, language FROM movies ORDER BY id")
 	if err != nil {
 		http.Redirect(w, r, "/error", 302)
 		return
@@ -53,10 +54,12 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 
 	var movies []Movie
 	stringLanguage := ""
+	stringStars := ""
 	for rows.Next() {
 		var (
 			id           string
 			title        string
+			stars        sql.NullString
 			release_year string
 			language     sql.NullString
 		)
@@ -68,7 +71,12 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 		if language.String != "" {
 			stringLanguage = language.String
 		}
-		movies = append(movies, Movie{ID: id, Title: title, ReleaseYear: release_year, Language: stringLanguage})
+
+		stringStars = ""
+		if stars.String != "" {
+			stringStars = stars.String
+		}
+		movies = append(movies, Movie{ID: id, Title: title, Stars: stringStars, ReleaseYear: release_year, Language: stringLanguage})
 	}
 	if err := rows.Err(); err != nil {
 		panic(err)
