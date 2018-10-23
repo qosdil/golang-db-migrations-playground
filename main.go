@@ -40,7 +40,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	rows, err := db.Query("SELECT * FROM movies ORDER BY id")
+	rows, err := db.Query("SELECT id, title, release_year, language FROM movies ORDER BY id")
 	if err != nil {
 		http.Redirect(w, r, "/error", 302)
 		return
