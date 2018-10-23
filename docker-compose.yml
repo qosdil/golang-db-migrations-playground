@@ -3,8 +3,8 @@ version: "3"
 services:
   api:
     build: .
-    command: bash -c "go get github.com/codegangsta/gin && gin -p 3000 run main.go"
+    command: bash -c "go get github.com/codegangsta/gin && gin -p ${DEV_DOCKER_PORT} run main.go"
     volumes:
       - .:/go/src/pressly-goose-test
     ports:
-      - "3000:3000"
+      - "${DEV_HOST_PORT}:${DEV_DOCKER_PORT}"

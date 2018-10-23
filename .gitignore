@@ -1,4 +1,5 @@
 /gin-bin
 /pressly-goose-test
 /vendor
+.env
 config.json
