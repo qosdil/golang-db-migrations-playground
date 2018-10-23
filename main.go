@@ -17,10 +17,10 @@ const version string = "1.1.0"
 
 // Movie ...
 type Movie struct {
-	ID          string         `json:"id,omitempty"`
-	Title       string         `json:"title,omitempty"`
-	ReleaseYear string         `json:"release_year,omitempty"`
-	Language    sql.NullString `json:"language,omitempty"`
+	ID          string `json:"id,omitempty"`
+	Title       string `json:"title,omitempty"`
+	ReleaseYear string `json:"release_year,omitempty"`
+	Language    string `json:"language,omitempty"`
 }
 
 // GetMovies ...
@@ -52,6 +52,7 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 	defer rows.Close()
 
 	var movies []Movie
+	stringLanguage := ""
 	for rows.Next() {
 		var (
 			id           string
@@ -62,7 +63,12 @@ func GetMovies(w http.ResponseWriter, r *http.Request) {
 		if err := rows.Scan(&id, &title, &release_year, &language); err != nil {
 			panic(err)
 		}
-		movies = append(movies, Movie{ID: id, Title: title, ReleaseYear: release_year, Language: language})
+
+		stringLanguage = ""
+		if language.String != "" {
+			stringLanguage = language.String
+		}
+		movies = append(movies, Movie{ID: id, Title: title, ReleaseYear: release_year, Language: stringLanguage})
 	}
 	if err := rows.Err(); err != nil {
 		panic(err)
