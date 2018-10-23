@@ -1,5 +1,5 @@
 # pressly-goose-test 
-v1.1.0
+v1.2.0
 
 Playing around with pressly/goose.
 
