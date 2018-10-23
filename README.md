@@ -86,7 +86,7 @@ After running the steps above, you can run the service:
 
 The following run command example binds port 3000 of the container to port 8080 on the host machine.
 
-	$ docker run -d -p 8080:3000 -e PORT=3000 --name pressly-goose-test-container pressly-goose-test-image:1.2.0
+	$ docker run -d -p 8080:3000 -e PORT=3000 --name pressly-goose-test-container-1.2.0 pressly-goose-test-image:1.2.0
 
 ### Non-Docker
 
