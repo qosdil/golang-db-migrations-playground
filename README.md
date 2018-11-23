@@ -55,9 +55,12 @@ Move to the cloned repository, then run the following:
 
 Create a MySQL database, for example: `pressly_goose_test`.
 
-### 2. Install pressly/goose
+### 2. Install pressly/goose v2.3.0
 
-	$ go get -u github.com/pressly/goose/cmd/goose
+	$ mkdir -p $GOPATH/src/github.com/pressly/goose
+	$ cd $GOPATH/src/github.com/pressly/goose
+	$ git clone --branch v2.3.0 git@github.com:pressly/goose.git .
+	$ go install ./cmd/goose
 	
 ### 3. Move to Migrations Directory
 
