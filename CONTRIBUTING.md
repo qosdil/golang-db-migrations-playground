@@ -29,3 +29,8 @@ From inside the container:
 	$ mysql -h mysql -e "create database pressly_goose_test"
 	
 Stay inside the container, then continue with step 2 of **Migrate Schemas** section in README.md file.
+
+After that, you can test the service from host machine:
+
+	$ curl http://localhost:[DEV_HOST_PORT]
+	$ curl http://localhost:[DEV_HOST_PORT]/movies
