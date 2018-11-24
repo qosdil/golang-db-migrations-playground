@@ -2,9 +2,19 @@ version: "3"
 
 services:
   api:
+    container_name: "pressly-goose-test-dev"
     build: .
-    command: bash -c "go get github.com/codegangsta/gin && gin -p ${DEV_DOCKER_PORT} run main.go"
+    command: bash -c "apt-get update && apt-get install --assume-yes mysql-client && go get github.com/codegangsta/gin && gin -p ${DEV_DOCKER_PORT} run main.go"
     volumes:
       - .:/go/src/pressly-goose-test
     ports:
       - "${DEV_HOST_PORT}:${DEV_DOCKER_PORT}"
+
+  # Set database.host as "mysql" in your /config.json file
+  mysql:
+    image: mysql:5.5
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "${MYSQL_HOST_PORT}:3306"

@@ -57,10 +57,7 @@ Create a MySQL database, for example: `pressly_goose_test`.
 
 ### 2. Install pressly/goose v2.3.0
 
-	$ mkdir -p $GOPATH/src/github.com/pressly/goose
-	$ cd $GOPATH/src/github.com/pressly/goose
-	$ git clone --branch v2.3.0 git@github.com:pressly/goose.git .
-	$ go install ./cmd/goose
+	$ bash ./install-pressly-goose-2.3.0.sh
 	
 ### 3. Move to Migrations Directory
 
@@ -74,11 +71,11 @@ To create/update the database schemas, run the `up` command like the following e
 	# User: root, password: (not set)
 	# Host: localhost, port: 3306
 	
-	$ goose mysql "root@/pressly_goose_test?parseTime=true" up
+	$ goose mysql "root@tcp(localhost:3306)/pressly_goose_test?parseTime=true" up
 	
 To roll it back, run the `down` command one or more times until it reaches the previous state:
 
-	$ goose mysql "root@/pressly_goose_test?parseTime=true" down
+	$ goose mysql "root@/tcp(localhost:3306)pressly_goose_test?parseTime=true" down
 
 	
 ## Run
