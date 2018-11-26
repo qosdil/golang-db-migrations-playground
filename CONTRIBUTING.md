@@ -26,7 +26,7 @@ If it is the first time, we need to create `pressly_goose_test` database inside 
 	
 From inside the container:
 	
-	$ mysql -h mysql -e "create database pressly_goose_test"
+	$ mysql -h mysql -e "create database pressly_goose_test DEFAULT CHARACTER SET=utf8"
 	
 Stay inside the container, then continue with step 2 of **Migrate Schemas** section in README.md file.
 

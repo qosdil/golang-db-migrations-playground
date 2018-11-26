@@ -55,6 +55,8 @@ Move to the cloned repository, then run the following:
 
 Create a MySQL database, for example: `pressly_goose_test`.
 
+	CREATE DATABASE `pressly_goose_test` DEFAULT CHARACTER SET = `utf8`;
+
 ### 2. Install pressly/goose v2.3.0
 
 	$ bash ./install-pressly-goose-2.3.0.sh
