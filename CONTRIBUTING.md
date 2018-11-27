@@ -20,6 +20,8 @@ Copy `/.env.example` file as `/.env`, then change the values with the real ones.
 	
 ### 5. Migrate Schemas
 
+#### 1. Create a Database
+
 If it is the first time, we need to create `pressly_goose_test` database inside the `mysql` container:
 
 	$ docker exec -it pressly-goose-test-dev /bin/bash
@@ -27,6 +29,15 @@ If it is the first time, we need to create `pressly_goose_test` database inside 
 From inside the container:
 	
 	$ mysql -h mysql -e "create database pressly_goose_test DEFAULT CHARACTER SET=utf8"
+	
+You can then access the database from your host machine with the following credentials:
+
+* Host: `localhost`
+* Port: `33060`
+* User: `root`
+* Password: `(null)`
+	
+#### 2. Next...
 	
 Stay inside the container, then continue with step 2 of **Migrate Schemas** section in README.md file.
 
