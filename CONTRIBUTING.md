@@ -39,7 +39,7 @@ You can then access the database from your host machine with the following crede
 	
 #### 2. Next...
 	
-Stay inside the container, then continue with step 2 of **Migrate Schemas** section in README.md file.
+Stay inside the container, then continue with step 3 of **Migrate Schemas** section in README.md file.
 
 After that, you can test the service from host machine:
 

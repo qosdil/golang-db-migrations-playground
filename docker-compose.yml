@@ -4,7 +4,12 @@ services:
   api:
     container_name: "pressly-goose-test-dev"
     build: .
-    command: bash -c "apt-get update && apt-get install --assume-yes mysql-client && go get github.com/codegangsta/gin && gin -p ${DEV_DOCKER_PORT} run main.go"
+    command: >
+      bash -c "apt-get update
+      && apt-get install --assume-yes mysql-client
+      && bash ./install-pressly-goose-2.3.0.sh
+      && go get github.com/codegangsta/gin
+      && gin -p ${DEV_DOCKER_PORT} run main.go"
     volumes:
       - .:/go/src/pressly-goose-test
     ports:
