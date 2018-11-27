@@ -7,6 +7,7 @@ Playing around with pressly/goose.
 * Go v1.11
 * Dep v0.5 (for non-Docker)
 * MySQL v5.5
+* Docker v18
 
 ## Build
 
