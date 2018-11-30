@@ -74,7 +74,7 @@ To create/update the database schemas, run the `up` command like the following e
 	
 To roll it back, run the `down` command one or more times until it reaches the previous state:
 
-	$ goose -dir "database/migrations" mysql "root@/tcp(localhost:3306)pressly_goose_test?parseTime=true" down
+	$ goose -dir "database/migrations" mysql "root@tcp(localhost:3306)/pressly_goose_test?parseTime=true" down
 
 	
 ## Run
