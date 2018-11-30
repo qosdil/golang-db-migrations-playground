@@ -18,30 +18,14 @@ Copy `/.env.example` file as `/.env`, then change the values with the real ones.
 
 	$ docker-compose up
 	
-### 5. Migrate Schemas
+Done, now you can test the service from host machine:
 
-#### 1. Create a Database
+	$ curl http://localhost:[DEV_HOST_PORT]
+	$ curl http://localhost:[DEV_HOST_PORT]/movies
 
-If it is the first time, we need to create `pressly_goose_test` database inside the `mysql` container:
-
-	$ docker exec -it pressly-goose-test-dev /bin/bash
-	
-From inside the container:
-	
-	$ mysql -h mysql -e "create database pressly_goose_test DEFAULT CHARACTER SET=utf8"
-	
-You can then access the database from your host machine with the following credentials:
+You can access the database from your host machine with the following credentials:
 
 * Host: `localhost`
 * Port: `[MYSQL_HOST_PORT]`
 * User: `root`
 * Password: `(null)`
-	
-#### 2. Next...
-	
-Stay inside the container, then continue with step 3 of **Migrate Schemas** section in README.md file.
-
-After that, you can test the service from host machine:
-
-	$ curl http://localhost:[DEV_HOST_PORT]
-	$ curl http://localhost:[DEV_HOST_PORT]/movies
