@@ -33,7 +33,7 @@ From inside the container:
 You can then access the database from your host machine with the following credentials:
 
 * Host: `localhost`
-* Port: `33060`
+* Port: `[MYSQL_HOST_PORT]`
 * User: `root`
 * Password: `(null)`
 	
