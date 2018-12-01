@@ -10,7 +10,7 @@ services:
       && bash ./install-pressly-goose-2.3.0.sh
       && mysql -h mysql -e \"CREATE DATABASE IF NOT EXISTS pressly_goose_test DEFAULT CHARACTER SET=utf8\"
       && goose -dir \"database/migrations\" mysql \"root@tcp(mysql:3306)/pressly_goose_test?parseTime=true\" up
-      && go get -v github.com/codegangsta/gin
+      && bash ./install-codegangsta-gin-cafe2ce.sh
       && gin --all -x vendor -p ${DEV_DOCKER_PORT} run main.go"
     volumes:
       - .:/go/src/pressly-goose-test
