@@ -1,9 +1,11 @@
-version: "3"
+version: "3.4"
 
 services:
   api:
     container_name: "pressly-goose-test-dev"
-    build: .
+    build: 
+      context: .
+      target: builder
     command: >
       bash -c "apt-get update
       && apt-get install --assume-yes mysql-client
